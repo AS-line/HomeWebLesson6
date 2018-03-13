@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ДЗ 6</title>
+</head>
+<body>
+
+{##}
+{#Добавьте другие выводы элементов сверху#}
+{##}
+
+<h1>12. Все продукты</h1>
+
+    {% for product in all_products %}
+        <h3>{{ product.title }}</h3>
+        <h6>{{ product.catalog.title }}</h6>
+        <strong>{{ product.count }}</strong>
+        <small>{{ product.shelf_life }}</small>
+        {%  if product.is_import %}
+            <p>Импортный продукт</p>
+        {% else %}
+            <p>Местный продукт</p>
+        {%  endif %}
+
+    {% endfor %}
+
+</body>
+</html>
