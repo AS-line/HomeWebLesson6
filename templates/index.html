@@ -6,24 +6,41 @@
 </head>
 <body>
 
+
 {##}
-{#Добавьте другие выводы элементов сверху#}
+
+<h3>_-----------------------------------_</h3>
+<h1>Фрукты и овощи</h1>
+{% for i in fruits_and_veg %}
+    <h3>{{ i }} - {% if i.catalog_id == 1 %}Фрукт{% endif %}{% if i.catalog_id == 2 %}Овощ{% endif %}</h3>
+{% endfor %}
+
+<h3>_-----------------------------------_</h3>
+<h3>_-----------------------------------_</h3>
+<h1>Ягоды</h1>
+{% for foo in berriers_arr %}
+    <h4>{{ foo }}</h4>
+{% endfor %}
+<h3>_-----------------------------------_</h3>
+
+<h2>Кол-во всех продуктов - {{ all_count }}</h2>
 {##}
 
 <h1>12. Все продукты</h1>
 
-    {% for product in all_products %}
-        <h3>{{ product.title }}</h3>
-        <h6>{{ product.catalog.title }}</h6>
-        <strong>{{ product.count }}</strong>
-        <small>{{ product.shelf_life }}</small>
-        {%  if product.is_import %}
-            <p>Импортный продукт</p>
-        {% else %}
-            <p>Местный продукт</p>
-        {%  endif %}
+{% for product in all_products %}
+    <h4>--------------------------------------</h4>
+    <h3>{{ product.title }}</h3>
+    <h6>{{ product.catalog.title }}</h6>
+    <strong>{{ product.count }}</strong><br>
+    <small>{{ product.shelf_life }}</small>
+    {% if product.is_import %}
+        <p>Импортный продукт</p>
+    {% else %}
+        <p>Местный продукт</p>
+    {% endif %}
 
-    {% endfor %}
+{% endfor %}
 
 </body>
 </html>
